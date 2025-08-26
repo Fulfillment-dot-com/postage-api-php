@@ -47,7 +47,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 			v::attribute('quantity', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitValue', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitWeight', v::numeric()->positive()->notEmpty()),
-            v::attribute('manufacturer', v::instance(Address::class)->callback([$this->getManufacturer(), 'validate'])),
+            v::attribute('manufacturer', v::instance(Address::class)->callback([$this->getManufacturer(), 'validate']), false),
 		];
 	}
 }
