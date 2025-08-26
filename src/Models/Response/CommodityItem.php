@@ -60,6 +60,11 @@ class CommodityItem implements CommodityItemContract, \JsonSerializable {
 	 */
 	protected $weightType;
 
+    /**
+     * @var Address
+     */
+    protected $manufacturer;
+
 
 	/**
 	 * @return int
@@ -220,5 +225,21 @@ class CommodityItem implements CommodityItemContract, \JsonSerializable {
 	{
 		$this->weightType = $weightType;
 	}
+
+    /**
+     * @return Address
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * @param $manufacturer
+     */
+    public function setManufacturer($manufacturer): void
+    {
+        $this->manufacturer = $manufacturer;
+    }
 
 }

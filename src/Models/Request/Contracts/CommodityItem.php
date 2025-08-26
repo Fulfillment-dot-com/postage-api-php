@@ -101,4 +101,15 @@ interface CommodityItem extends \JsonSerializable {
 	 *
 	 */
 	public function setTariffNumber($tariffNumber);
+
+    /**
+     * @return Address
+     */
+    public function getManufacturer();
+
+    /**
+     * @param Address $manufacturer
+     *
+     */
+    public function setManufacturer($manufacturer);
 }

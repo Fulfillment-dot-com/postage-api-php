@@ -3,6 +3,7 @@
 namespace Fulfillment\Postage\Models\Request;
 
 use FoxxMD\Utilities\ArrayUtil;
+use Fulfillment\Postage\Models\Request\Contracts\Address;
 use Fulfillment\Postage\Models\Request\Contracts\Validatable;
 use Fulfillment\Postage\Models\Request\Base\BaseCommodityItem;
 use Fulfillment\Postage\Models\Traits\SimpleSerializable;
@@ -25,6 +26,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 		$this->unitValue    = ArrayUtil::get($data['unitValue']);
 		$this->unitWeight   = ArrayUtil::get($data['unitWeight']);
 		$this->tariffNumber = ArrayUtil::get($data['tariffNumber']);
+        $this->manufacturer = ArrayUtil::get($data['manufacturer']);
 	}
 
 	/**
@@ -45,6 +47,7 @@ class CommodityItem extends BaseCommodityItem implements Validatable {
 			v::attribute('quantity', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitValue', v::numeric()->positive()->notEmpty()),
 			v::attribute('unitWeight', v::numeric()->positive()->notEmpty()),
+            v::attribute('manufacturer', v::instance(Address::class)->callback([$this->getManufacturer(), 'validate'])),
 		];
 	}
 }

@@ -3,6 +3,8 @@
 namespace Fulfillment\Postage\Models\Response\Contracts;
 
 
+use Fulfillment\Postage\Models\Request\Contracts\Address;
+
 interface CommodityItem {
 
 	/**
@@ -104,4 +106,15 @@ interface CommodityItem {
 	 * @param WeightType $weightType
 	 */
 	public function setWeightType($weightType);
+
+    /**
+     * @return Address
+     */
+    public function getManufacturer();
+
+    /**
+     * @param Address $manufacturer
+     *
+     */
+    public function setManufacturer($manufacturer);
 }
