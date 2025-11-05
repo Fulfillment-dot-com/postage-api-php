@@ -235,7 +235,7 @@ class CommodityItem implements CommodityItemContract, \JsonSerializable {
     }
 
     /**
-     * @param $manufacturer
+     * @param Address $manufacturer
      */
     public function setManufacturer($manufacturer): void
     {
